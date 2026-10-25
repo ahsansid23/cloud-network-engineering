@@ -1,0 +1,16 @@
+---
+- name: Back up lab Cisco IOS configurations
+  hosts: network_devices
+  gather_facts: false
+  tasks:
+    - name: Collect running configuration
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: running_config
+    - name: Save configuration locally
+      ansible.builtin.copy:
+        content: "{{ running_config.stdout[0] }}"
+        dest: "{{ playbook_dir }}/{{ inventory_hostname }}-running-config.cfg"
+        mode: "0600"
+      delegate_to: localhost
