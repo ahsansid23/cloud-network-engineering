@@ -1,16 +1,11 @@
-# OpenShift application networking and isolation demo
+# Cloud Network Engineering Portfolio
 
-A small lab example for exposing a containerized service through an OpenShift Route while restricting pod ingress with a Kubernetes NetworkPolicy. This is a demo manifest set; review cluster policy, namespace labels, TLS requirements, and image policy before applying it in a real cluster.
+Practical demo projects for cloud networking, automation, and network operations. These are portfolio/lab examples, not claims of production deployment or employer work.
 
-## What it demonstrates
-- Deployment and ClusterIP Service for an unprivileged web container
-- OpenShift Route with edge TLS termination
-- Default-deny ingress and a scoped allow rule for pods labelled `role=frontend`
+## Projects
+- [OpenShift application networking and isolation](projects/openshift-network-policy/): Route, service, deployment, and scoped Kubernetes NetworkPolicy.
+- [AWS VPC reference architecture (Terraform)](projects/aws-vpc-terraform/): segmented public/private subnets and routing.
+- [Network configuration backup (Ansible)](projects/ansible-config-backup/): lab playbook example; use Ansible Vault or a secret manager for credentials.
+- [Network health report (Python)](projects/network-health-report/): offline availability and packet-loss summary from synthetic CSV input.
 
-## Apply in a disposable lab namespace
-```sh
-oc new-project network-demo
-oc apply -f manifests/
-oc get route web-demo
-```
-Only approved frontend-labelled pods in the same namespace should be able to reach the application pods on TCP 8080. NetworkPolicy enforcement depends on the cluster network plugin and policy configuration.
+Review and test each project before use. Remove secrets, customer data, and internal network details before publishing.
