@@ -1,0 +1,4 @@
+device,checks,failures,avg_packet_loss_pct
+edge-router-1,1000,2,0.03
+core-switch-1,1000,0,0.00
+lab-firewall-1,1000,8,0.25
