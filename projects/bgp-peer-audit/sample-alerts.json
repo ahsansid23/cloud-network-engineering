@@ -1,0 +1,26 @@
+{
+  "snapshot_time": "2026-10-26T08:00:00Z",
+  "devices": [
+    {
+      "name": "edge-r1",
+      "vendor": "example",
+      "local_as": 65010,
+      "peers": [
+        {
+          "address": "192.0.2.2",
+          "remote_as": 65020,
+          "state": "Idle",
+          "prefixes_received": 0,
+          "min_prefixes": 100
+        },
+        {
+          "address": "192.0.2.6",
+          "remote_as": 65030,
+          "state": "Established",
+          "prefixes_received": 20,
+          "min_prefixes": 50
+        }
+      ]
+    }
+  ]
+}
