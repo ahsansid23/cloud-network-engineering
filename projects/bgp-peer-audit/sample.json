@@ -1,0 +1,42 @@
+{
+  "snapshot_time": "2026-10-26T08:00:00Z",
+  "devices": [
+    {
+      "name": "edge-r1",
+      "vendor": "example",
+      "local_as": 65010,
+      "peers": [
+        {
+          "address": "192.0.2.2",
+          "remote_as": 65020,
+          "state": "Established",
+          "prefixes_received": 120,
+          "min_prefixes": 100,
+          "max_prefixes": 150
+        },
+        {
+          "address": "192.0.2.6",
+          "remote_as": 65030,
+          "state": "Established",
+          "prefixes_received": 80,
+          "min_prefixes": 50,
+          "max_prefixes": 100
+        }
+      ]
+    },
+    {
+      "name": "edge-r2",
+      "vendor": "example",
+      "local_as": 65011,
+      "peers": [
+        {
+          "address": "198.51.100.2",
+          "remote_as": 65040,
+          "state": "Established",
+          "prefixes_received": 45,
+          "min_prefixes": 40
+        }
+      ]
+    }
+  ]
+}
