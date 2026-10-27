@@ -67,3 +67,8 @@ Example:
 - Normalized data must be collected and reviewed securely. Do not commit customer configurations, real peer addresses, credentials, or internal topology.
 - Session-state and prefix checks are a basic signal, not a substitute for routing-table, RPKI, policy, reachability, or change-window validation.
 - Tested locally with synthetic inputs; no live network or vendor integration is included.
+
+
+## Offline vendor text parsers
+
+Optional narrow parsers convert sanitized Juniper Junos and Cisco IOS BGP neighbor text into the normalized JSON consumed by this audit. They do not connect to devices. See [parser usage and limitations](parsers/README.md), synthetic [Junos fixture](fixtures/junos-neighbors.txt), [Cisco IOS fixture](fixtures/cisco-ios-neighbors.txt), and run all tests with `python -m unittest -v`.

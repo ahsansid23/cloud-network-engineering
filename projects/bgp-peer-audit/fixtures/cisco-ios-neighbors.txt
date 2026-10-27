@@ -1,0 +1,8 @@
+edge-r1# show ip bgp neighbors
+BGP neighbor is 192.0.2.2,  remote AS 65020, external link
+  BGP state = Established, up for 2d03h
+  120 accepted prefixes
+  15 announced prefixes
+BGP neighbor is 198.51.100.2,  remote AS 65030, external link
+  BGP state = Active, down for never
+  0 accepted prefixes
