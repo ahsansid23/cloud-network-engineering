@@ -1,0 +1,7 @@
+network_name,site,vrf,cidr,purpose
+prod-summary,dc1,default,10.40.0.0/16,Example aggregate to demonstrate containment findings
+prod-apps,dc1,default,10.40.8.0/24,Example allocation inside the aggregate above
+isolated-lab,dc1,lab,10.40.8.0/24,Same prefix in a separate VRF is not compared
+management-v6,dc1,default,2001:db8:40::/48,Documentation-only IPv6 example
+management-v6-subnet,dc1,default,2001:db8:40:1::/64,Example IPv6 containment finding
+non-overlapping,dc1,default,10.50.0.0/16,Separate non-overlapping allocation
