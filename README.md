@@ -1,13 +1,40 @@
 # Cloud Network Engineering Portfolio
 
-Practical demo projects for cloud networking, automation, and network operations. These are portfolio/lab examples, not claims of production deployment or employer work.
+A hands-on portfolio of cloud networking, infrastructure as code, network automation, and operational validation. Projects are deliberately small enough to review, explain, and test; examples are learning artifacts, not claims of production deployment or employer work.
 
-## Projects
-- [OpenShift application networking and isolation](projects/openshift-network-policy/): Route, service, deployment, and scoped Kubernetes NetworkPolicy.
-- [AWS VPC reference architecture (Terraform)](projects/aws-vpc-terraform/): segmented public/private subnets and routing.
-- [Network configuration backup (Ansible)](projects/ansible-config-backup/): lab playbook example; use Ansible Vault or a secret manager for credentials.
-- [Network health report (Python)](projects/network-health-report/): offline availability and packet-loss summary from synthetic CSV input.
-- [BGP peer health audit (Python)](projects/bgp-peer-audit/): offline BGP session-state and received-prefix threshold checks with CSV output and unit tests.
-- [IPAM overlap auditor (Python)](projects/ipam-overlap-auditor/): offline IPv4/IPv6 inventory validation, duplicate detection, and overlap checks scoped by site and VRF.
+## Project catalogue
 
-Review and test each project before use. Remove secrets, customer data, and internal network details before publishing.
+| Project | Focus | Skills demonstrated |
+|---|---|---|
+| [AWS VPC reference architecture](projects/aws-vpc-terraform/) | Terraform network foundation | VPC, public/private subnets, route tables, security-group boundaries, plan review |
+| [OpenShift network policy](projects/openshift-network-policy/) | Application connectivity and isolation | Deployment, Service, Route, pod selection, ingress policy, TLS termination |
+| [Ansible configuration backup](projects/ansible-config-backup/) | Network automation | Network CLI, configuration collection, local file permissions, secret handling |
+| [Network health report](projects/network-health-report/) | Availability metrics | CSV ingestion, availability calculation, packet-loss reporting |
+| [BGP peer health audit](projects/bgp-peer-audit/) | Routing operations | Session-state checks, prefix thresholds, normalized snapshots, offline vendor parsers |
+| [IPAM overlap auditor](projects/ipam-overlap-auditor/) | Address-plan quality | IPv4/IPv6 CIDR validation, duplicate and containment findings, site/VRF scope, JSON output |
+
+## How to use this portfolio
+
+1. Start with the project README and understand the design before running commands.
+2. Use supplied synthetic fixtures first; they are intentionally safe and may include expected findings.
+3. Run offline validation where provided. A documented command is not evidence that it has been executed in your environment.
+4. For infrastructure projects, inspect the plan/manifests and provider or cluster prerequisites before any apply.
+5. Never commit secrets, customer data, real device configurations, or internal addressing/topology. Use a secret manager or encrypted vault for credentials.
+
+## Validation philosophy
+
+- **Offline first:** prefer unit tests, sample inputs, syntax checks, and plans that do not create resources.
+- **Fail clearly:** document expected exit codes and intentional sample failures.
+- **Explicit limitations:** synthetic tests do not prove vendor compatibility, production readiness, cloud-provider behavior, or live network reachability.
+- **Review before change:** these tools report or describe candidate configurations; they do not replace peer review, change control, backup/rollback planning, or operational approval.
+
+## Suggested learning path
+
+1. Build CIDR and subnetting intuition with the IPAM auditor.
+2. Understand routing adjacency health with the BGP peer audit.
+3. Correlate reachability-style metrics with the network health report.
+4. Review how Terraform models cloud network boundaries.
+5. Explore application-level segmentation in OpenShift.
+6. Study the Ansible backup workflow and its operational safeguards.
+
+All examples are for education and controlled labs. Validate against current vendor documentation and your own requirements before adapting them to a real environment.

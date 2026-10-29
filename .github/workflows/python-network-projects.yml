@@ -1,0 +1,44 @@
+name: Offline network project checks
+
+on:
+  push:
+    paths:
+      - "projects/ipam-overlap-auditor/**"
+      - "projects/bgp-peer-audit/**"
+      - ".github/workflows/python-network-projects.yml"
+  pull_request:
+    paths:
+      - "projects/ipam-overlap-auditor/**"
+      - "projects/bgp-peer-audit/**"
+      - ".github/workflows/python-network-projects.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ipam-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run IPAM auditor unit tests
+        working-directory: projects/ipam-overlap-auditor
+        run: python -m unittest -v
+      - name: Compile IPAM auditor
+        run: python -m py_compile projects/ipam-overlap-auditor/audit.py
+
+  bgp-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run BGP audit and parser tests
+        working-directory: projects/bgp-peer-audit
+        run: python -m unittest -v
+      - name: Compile BGP audit and parser modules
+        run: python -m compileall -q projects/bgp-peer-audit
