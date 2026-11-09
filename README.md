@@ -10,6 +10,7 @@ A hands-on portfolio of cloud networking, infrastructure as code, network automa
 | [OpenShift network policy](projects/openshift-network-policy/) | Application connectivity and isolation | Deployment, Service, Route, pod selection, ingress policy, TLS termination |
 | [Ansible configuration backup](projects/ansible-config-backup/) | Network automation | Network CLI, configuration collection, local file permissions, secret handling |
 | [Network health report](projects/network-health-report/) | Availability metrics | CSV ingestion, availability calculation, packet-loss reporting |
+| [AWS VPC Flow Log analyser](projects/aws-vpc-flowlog-analyser/) | Cloud traffic observability | VPC Flow Logs v2, IPv4/IPv6 parsing, ACCEPT/REJECT analysis, protocol and port aggregation |
 | [BGP peer health audit](projects/bgp-peer-audit/) | Routing operations | Session-state checks, prefix thresholds, normalized snapshots, offline vendor parsers |
 | [IPAM overlap auditor](projects/ipam-overlap-auditor/) | Address-plan quality | IPv4/IPv6 CIDR validation, duplicate and containment findings, site/VRF scope, JSON output |
 
@@ -33,8 +34,9 @@ A hands-on portfolio of cloud networking, infrastructure as code, network automa
 1. Build CIDR and subnetting intuition with the IPAM auditor.
 2. Understand routing adjacency health with the BGP peer audit.
 3. Correlate reachability-style metrics with the network health report.
-4. Review how Terraform models cloud network boundaries.
-5. Explore application-level segmentation in OpenShift.
-6. Study the Ansible backup workflow and its operational safeguards.
+4. Analyse observed traffic and rejected flows with the AWS VPC Flow Log analyser.
+5. Review how Terraform models cloud network boundaries.
+6. Explore application-level segmentation in OpenShift.
+7. Study the Ansible backup workflow and its operational safeguards.
 
 All examples are for education and controlled labs. Validate against current vendor documentation and your own requirements before adapting them to a real environment.
