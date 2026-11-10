@@ -1,0 +1,81 @@
+{
+  "findings": [
+    {
+      "code": "blackhole-route",
+      "message": "Route to 10.60.0.0/16 is in blackhole state",
+      "resource": "rtb-00000000000000002",
+      "severity": "high"
+    },
+    {
+      "code": "unassociated-route-table",
+      "message": "Route table has no active main or subnet association in this export",
+      "resource": "rtb-00000000000000003",
+      "severity": "info"
+    }
+  ],
+  "route_tables": [
+    {
+      "associated_subnets": [],
+      "blackhole_route_count": 0,
+      "default_routes": [
+        {
+          "destination": "0.0.0.0/0",
+          "state": "active",
+          "targets": {
+            "GatewayId": "igw-00000000000000001"
+          }
+        }
+      ],
+      "is_main": true,
+      "name": "lab-public",
+      "route_count": 2,
+      "route_table_id": "rtb-00000000000000001",
+      "vpc_id": "vpc-00000000000000001"
+    },
+    {
+      "associated_subnets": [
+        "subnet-00000000000000001"
+      ],
+      "blackhole_route_count": 1,
+      "default_routes": [
+        {
+          "destination": "0.0.0.0/0",
+          "state": "active",
+          "targets": {
+            "NatGatewayId": "nat-00000000000000001"
+          }
+        }
+      ],
+      "is_main": false,
+      "name": "lab-private",
+      "route_count": 3,
+      "route_table_id": "rtb-00000000000000002",
+      "vpc_id": "vpc-00000000000000001"
+    },
+    {
+      "associated_subnets": [],
+      "blackhole_route_count": 0,
+      "default_routes": [],
+      "is_main": false,
+      "name": null,
+      "route_count": 1,
+      "route_table_id": "rtb-00000000000000003",
+      "vpc_id": "vpc-00000000000000001"
+    }
+  ],
+  "schema_version": 1,
+  "summary": {
+    "blackhole_route_count": 1,
+    "default_route_count": 2,
+    "finding_count": 2,
+    "route_count": 6,
+    "route_table_count": 3,
+    "severity_counts": {
+      "critical": 0,
+      "high": 1,
+      "info": 1,
+      "low": 0,
+      "medium": 0
+    }
+  }
+}

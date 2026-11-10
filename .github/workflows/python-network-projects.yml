@@ -5,11 +5,13 @@ on:
     paths:
       - "projects/ipam-overlap-auditor/**"
       - "projects/bgp-peer-audit/**"
+      - "projects/aws-route-table-auditor/**"
       - ".github/workflows/python-network-projects.yml"
   pull_request:
     paths:
       - "projects/ipam-overlap-auditor/**"
       - "projects/bgp-peer-audit/**"
+      - "projects/aws-route-table-auditor/**"
       - ".github/workflows/python-network-projects.yml"
   workflow_dispatch:
 
@@ -42,3 +44,22 @@ jobs:
         run: python -m unittest -v
       - name: Compile BGP audit and parser modules
         run: python -m compileall -q projects/bgp-peer-audit
+
+  aws-route-table-auditor-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run AWS route-table auditor unit tests
+        working-directory: projects/aws-route-table-auditor
+        run: python -m unittest -v
+      - name: Compile AWS route-table auditor
+        working-directory: projects/aws-route-table-auditor
+        run: python -m py_compile route_table_auditor.py test_route_table_auditor.py
+      - name: Validate synthetic report JSON
+        working-directory: projects/aws-route-table-auditor
+        run: |
+          python route_table_auditor.py sample-route-tables.json --output "$RUNNER_TEMP/route-table-report.json"
+          python -m json.tool "$RUNNER_TEMP/route-table-report.json" > /dev/null

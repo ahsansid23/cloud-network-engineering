@@ -1,0 +1,40 @@
+{
+  "RouteTables": [
+    {
+      "RouteTableId": "rtb-00000000000000001",
+      "VpcId": "vpc-00000000000000001",
+      "Tags": [{"Key": "Name", "Value": "lab-public"}],
+      "Associations": [
+        {"Main": true, "RouteTableAssociationId": "rtbassoc-00000000000000001",
+         "AssociationState": {"State": "associated"}}
+      ],
+      "Routes": [
+        {"DestinationCidrBlock": "10.40.0.0/16", "GatewayId": "local", "State": "active"},
+        {"DestinationCidrBlock": "0.0.0.0/0", "GatewayId": "igw-00000000000000001", "State": "active"}
+      ]
+    },
+    {
+      "RouteTableId": "rtb-00000000000000002",
+      "VpcId": "vpc-00000000000000001",
+      "Tags": [{"Key": "Name", "Value": "lab-private"}],
+      "Associations": [
+        {"Main": false, "SubnetId": "subnet-00000000000000001",
+         "RouteTableAssociationId": "rtbassoc-00000000000000002",
+         "AssociationState": {"State": "associated"}}
+      ],
+      "Routes": [
+        {"DestinationCidrBlock": "10.40.0.0/16", "GatewayId": "local", "State": "active"},
+        {"DestinationCidrBlock": "0.0.0.0/0", "NatGatewayId": "nat-00000000000000001", "State": "active"},
+        {"DestinationCidrBlock": "10.60.0.0/16", "TransitGatewayId": "tgw-00000000000000001", "State": "blackhole"}
+      ]
+    },
+    {
+      "RouteTableId": "rtb-00000000000000003",
+      "VpcId": "vpc-00000000000000001",
+      "Associations": [],
+      "Routes": [
+        {"DestinationCidrBlock": "10.40.0.0/16", "GatewayId": "local", "State": "active"}
+      ]
+    }
+  ]
+}

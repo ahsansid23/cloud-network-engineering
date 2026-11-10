@@ -7,6 +7,7 @@ A hands-on portfolio of cloud networking, infrastructure as code, network automa
 | Project | Focus | Skills demonstrated |
 |---|---|---|
 | [AWS VPC reference architecture](projects/aws-vpc-terraform/) | Terraform network foundation | VPC, public/private subnets, route tables, security-group boundaries, plan review |
+| [AWS Route Table Auditor](projects/aws-route-table-auditor/) | Cloud routing configuration audit | AWS route-table exports, blackhole detection, CIDR canonicalisation, subnet association checks |
 | [OpenShift network policy](projects/openshift-network-policy/) | Application connectivity and isolation | Deployment, Service, Route, pod selection, ingress policy, TLS termination |
 | [Ansible configuration backup](projects/ansible-config-backup/) | Network automation | Network CLI, configuration collection, local file permissions, secret handling |
 | [Network health report](projects/network-health-report/) | Availability metrics | CSV ingestion, availability calculation, packet-loss reporting |
@@ -34,9 +35,10 @@ A hands-on portfolio of cloud networking, infrastructure as code, network automa
 1. Build CIDR and subnetting intuition with the IPAM auditor.
 2. Understand routing adjacency health with the BGP peer audit.
 3. Correlate reachability-style metrics with the network health report.
-4. Analyse observed traffic and rejected flows with the AWS VPC Flow Log analyser.
-5. Review how Terraform models cloud network boundaries.
-6. Explore application-level segmentation in OpenShift.
-7. Study the Ansible backup workflow and its operational safeguards.
+4. Review how Terraform models cloud network boundaries.
+5. Audit exported AWS route tables for blackhole routes and association anomalies.
+6. Analyse observed traffic and rejected flows with the AWS VPC Flow Log analyser.
+7. Explore application-level segmentation in OpenShift.
+8. Study the Ansible backup workflow and its operational safeguards.
 
 All examples are for education and controlled labs. Validate against current vendor documentation and your own requirements before adapting them to a real environment.
